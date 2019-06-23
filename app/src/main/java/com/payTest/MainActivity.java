@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void pay(){
         RxHttpUtils.createApi(ApiService.class)
-                .payStart("2019623", "CMCUGOCA",channel,"0.01","VF8HPSPE","2d43ae5c8b2840ca94f848e12096e312")
+                .payStart(System.currentTimeMillis()+"", "CMCUGOCA",channel,"0.01","VF8HPSPE","2d43ae5c8b2840ca94f848e12096e312")
                 .compose(Transformer.<BaseData<PayBean>>switchSchedulers())
                 .subscribe(new DialogObserver<PayBean>() {
                     @Override
